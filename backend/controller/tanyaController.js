@@ -11,15 +11,6 @@ export const getJawab = async(req,res) => {
     }
 }
 
-export const createJawabs = async(req,res) => {
-    try {
-        await Jawaban.create(req.body);
-        res.status(201).json({message: "Jawaban Ditambahkan"});
-    } catch (error) {
-        console.log(error.message);
-    }
-}
-
 export const getTanya = async(req,res) => {
     try {
         const response = await Tanya.findAll({
@@ -84,9 +75,10 @@ export const getAllQnA = async (req, res) => {
   };
 
   export const createJawab = async (req, res) => {
+    if(req.body.id_question === undefined) return
     try {
       await Jawaban.create(req.body);
-      res.status(201).json({message: "Pertanyaan Ditambahkan"});
+      res.status(201).json({message: "Jawaban Ditambahkan"});
   } catch (error) {
       console.log(error.message);
   }
