@@ -4,7 +4,6 @@ import db from "../config/database.js";
 const {DataTypes} = Sequelize;
 
 const Tanya = db.define('tanya', {
-    timestamps: false,
     id_question: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -17,7 +16,6 @@ const Tanya = db.define('tanya', {
 });
 
 const Jawaban = db.define('jawaban', {
-    timestamps: false,
     id_jawaban: {
         type: DataTypes.INTEGER,
         primaryKey: true,
