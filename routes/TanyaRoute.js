@@ -7,12 +7,12 @@ import {
     createJawab
 } from "../controller/tanyaController.js";
 
-const TanyaRoute = express.Router();
+const router = express.Router();
 
-TanyaRoute.get('/test', getJawab);
-TanyaRoute.get('/utama', getQnA);
-TanyaRoute.get('/qna', getAllQnA);
-TanyaRoute.post('/qna/add',createTanya);
-TanyaRoute.post('/qna/jawaban',createJawab);
+router.get('/test', getJawab);
+router.get('/utama', getQnA);
+router.get('/qna', getAllQnA);
+router.post('/qna/add',createTanya);
+router.post('/qna/jawaban',createJawab);
 
 export default router;
