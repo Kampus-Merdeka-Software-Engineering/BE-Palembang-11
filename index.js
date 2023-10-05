@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import TanyaRoute from "./routes/TanyaRoute.js";
+import router from "./routes/TanyaRoute.js";
 import { fileURLToPath } from 'url';
 import path from 'path';
 
@@ -12,7 +12,7 @@ const port = 3000;
  
 app.use(cors());
 app.use(express.json());
-app.use(TanyaRoute);
+app.use(router);
 
 app.use(express.static(path.join(__dirname, '../frontend')));
 
