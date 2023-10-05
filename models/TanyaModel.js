@@ -3,7 +3,7 @@ import db from "../config/database.js";
 
 const {DataTypes} = Sequelize;
 
-const Tanya = db.define('tanya', {
+export const Tanya = db.define('tanya', {
     id_question: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -15,7 +15,7 @@ const Tanya = db.define('tanya', {
     freezeTableName: true,
 });
 
-const Jawaban = db.define('jawaban', {
+export const Jawaban = db.define('jawaban', {
     id_jawaban: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -33,8 +33,6 @@ const Jawaban = db.define('jawaban', {
     freezeTableName: true,
 });
 
-
-export { Tanya, Jawaban };
 
 (async()=>{
     await db.sync();
