@@ -3,9 +3,6 @@ import cors from "cors";
 import router from "./routes/TanyaRoute.js";
 import { fileURLToPath } from 'url';
 import path from 'path';
-const cors = require('cors');
-
-app.use(cors());
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
