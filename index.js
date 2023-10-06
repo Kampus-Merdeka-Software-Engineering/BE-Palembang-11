@@ -1,8 +1,11 @@
 import express from "express";
 import cors from "cors";
-import TanyaRoute from "./routes/TanyaRoute.js";
+import router from "./routes/TanyaRoute.js";
 import { fileURLToPath } from 'url';
 import path from 'path';
+const cors = require('cors');
+
+app.use(cors());
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,7 +15,7 @@ const port = 3000;
  
 app.use(cors());
 app.use(express.json());
-app.use(TanyaRoute);
+app.use(router);
 
 app.use(express.static(path.join(__dirname, 'https://kampus-merdeka-software-engineering.github.io/front-end-capstone-project-section-palembang-group-11')));
 
