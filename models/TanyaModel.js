@@ -13,7 +13,6 @@ const Tanya = db.define('tanya', {
     pertanyaan: DataTypes.STRING
 }, {
     freezeTableName: true,
-    timestamps: false
 });
 
 const Jawaban = db.define('jawaban', {
@@ -32,8 +31,6 @@ const Jawaban = db.define('jawaban', {
     jawaban: DataTypes.STRING
 }, {
     freezeTableName: true,
-    timestamps: false
-
 });
 
 
