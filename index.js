@@ -17,7 +17,7 @@ app.use(router);
 app.use(express.static(path.join(__dirname, 'https://kampus-merdeka-software-engineering.github.io/front-end-capstone-project-section-palembang-group-11')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'https://kampus-merdeka-software-engineering.github.io/front-end-capstone-project-section-palembang-group-11/page/pertanyaan.html'));
+    res.sendFile(path.join(__dirname, 'front-end-capstone-project-section-palembang-group-11/page/pertanyaan.html'));
 });
  
 app.listen(port, () => {
