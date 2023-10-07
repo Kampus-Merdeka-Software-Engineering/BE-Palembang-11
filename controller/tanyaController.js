@@ -52,8 +52,12 @@ export const getAllQnA = async (req, res) => {
 
   export const getQnA = async (req,res) => {
     try {
-        const questions = await Tanya.findAll();
-        const answers = await Jawaban.findAll();
+        const questions = await Tanya.findAll({
+          limit:3
+        });
+        const answers = await Jawaban.findAll({
+          limit:3
+        });
 
         const qnaData = questions.map((question) => {
             const relatedAnswers = answers.filter((answer) => answer.id_question === question.id_question);
