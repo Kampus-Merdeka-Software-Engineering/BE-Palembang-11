@@ -3,9 +3,7 @@ import {Tanya, Jawaban} from "../models/TanyaModel.js";
 
 export const getJawab = async(req,res) => {
     try {
-        const response = await Jawaban.findAll({
-            limit:3,
-        });
+        const response = await Jawaban.findAll();
         res.status(200).json(JSON.stringfy(response));
     } catch (error) {
         console.log(error.message);
@@ -14,9 +12,7 @@ export const getJawab = async(req,res) => {
 
 export const getTanya = async(req,res) => {
     try {
-        const response = await Tanya.findAll({
-            limit:3,
-        });
+        const response = await Tanya.findAll();
         res.status(200).json(response);
     } catch (error) {
         console.log(error.message);
@@ -56,9 +52,7 @@ export const getAllQnA = async (req, res) => {
 
   export const getQnA = async (req,res) => {
     try {
-        const questions = await Tanya.findAll({
-            limit:3,
-        });
+        const questions = await Tanya.findAll();
         const answers = await Jawaban.findAll();
 
         const qnaData = questions.map((question) => {
