@@ -1,3 +1,4 @@
+import { JSON } from "sequelize";
 import {Tanya, Jawaban} from "../models/TanyaModel.js";
 
 export const getJawab = async(req,res) => {
@@ -5,7 +6,7 @@ export const getJawab = async(req,res) => {
         const response = await Jawaban.findAll({
             limit:3,
         });
-        res.status(200).json(response);
+        res.status(200).json(JSON.stringfy(response));
     } catch (error) {
         console.log(error.message);
     }
