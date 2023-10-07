@@ -28,9 +28,10 @@ const Jawaban = db.define('jawaban', {
             key: 'id_question' 
         }
     },
+    nama: DataTypes.STRING,
     jawaban: DataTypes.STRING
 }, {
-    freezeTableName: true,
+    freezeTableName: true
 });
 
 

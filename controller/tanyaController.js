@@ -29,41 +29,50 @@ export const createTanya = async(req,res) => {
 }
 
 export const getAllQnA = async (req, res) => {
-    try {
-      const questions = await Tanya.findAll(); // Ambil semua pertanyaan
-      const answers = await Jawaban.findAll(); // Ambil semua jawaban
-  
-      // Gabungkan data pertanyaan dan jawaban sesuai id pertanyaan
-      const qnaData = questions.map((question) => {
-        const relatedAnswers = answers.filter((answer) => answer.id_question === question.id_question);
-        return {
-          pertanyaan: question.pertanyaan,
-          jawaban: relatedAnswers.map((answer) => answer.jawaban),
-          id_question: question.id_question,
-        };
-      });
-  
-      res.status(200).json(qnaData);
-    } catch (error) {
-      console.log(error.message);
-      res.status(500).json({ error: "Internal server error" });
-    }
-  };
+  try {
+    const questions = await Tanya.findAll(); // Ambil semua pertanyaan
+    const answers = await Jawaban.findAll(); // Ambil semua jawaban
+
+    // Gabungkan data pertanyaan dan jawaban sesuai id pertanyaan
+    const qnaData = questions.map((question) => {
+      const relatedAnswers = answers.filter((answer) => answer.id_question === question.id_question);
+      return {
+        name: question.name,
+        pertanyaan: question.pertanyaan,
+        id_question: question.id_question,
+        jawaban: relatedAnswers.map((answer) => {
+          return{
+            nama: answer.nama,
+            jawaban: answer.jawaban,
+          }
+        }),
+      };
+    });
+    res.status(200).json(qnaData);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
 
   export const getQnA = async (req,res) => {
     try {
         const questions = await Tanya.findAll({
-          limit:3
+            limit:3,
         });
-        const answers = await Jawaban.findAll({
-          limit:3
-        });
+        const answers = await Jawaban.findAll();
 
         const qnaData = questions.map((question) => {
             const relatedAnswers = answers.filter((answer) => answer.id_question === question.id_question);
             return {
+              name: question.name,
               pertanyaan: question.pertanyaan,
-              jawaban: relatedAnswers.map((answer) => answer.jawaban),
+              jawaban: relatedAnswers.map((answer) => {
+                return{
+                  nama: answer.nama,
+                  jawaban: answer.jawaban,
+                }
+              }),
             };
           });
           res.status(200).json(qnaData);
