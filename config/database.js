@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
 
-const db = new Sequelize('mysql://root:paUjIsFV9H8jvkRy5oYc@containers-us-west-94.railway.app:7048/railway');
+const db = new Sequelize('mysql://root:UqwFOXxzS2eugqVNpVXq@containers-us-west-121.railway.app:7211/railway');
 
 export default db;
