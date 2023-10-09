@@ -1,4 +1,3 @@
-import { JSON } from "sequelize";
 import {Tanya, Jawaban} from "../models/TanyaModel.js";
 
 export const createTanya = async(req,res) => {
