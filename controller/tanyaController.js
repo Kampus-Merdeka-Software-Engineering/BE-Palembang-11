@@ -1,24 +1,6 @@
 import { JSON } from "sequelize";
 import {Tanya, Jawaban} from "../models/TanyaModel.js";
 
-export const getJawab = async(req,res) => {
-    try {
-        const response = await Jawaban.findAll();
-        res.status(200).json(JSON.stringfy(response));
-    } catch (error) {
-        console.log(error.message);
-    }
-}
-
-export const getTanya = async(req,res) => {
-    try {
-        const response = await Tanya.findAll();
-        res.status(200).json(response);
-    } catch (error) {
-        console.log(error.message);
-    }
-}
-
 export const createTanya = async(req,res) => {
     try {
         await Tanya.create(req.body);
